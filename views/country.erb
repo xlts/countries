@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title><%= @this_country.name.to_s %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+      <br>
+      <a href="/"> Back </a>
+        <h1><%=  @this_country.name.to_s %></h1>
+
+        <table class="table-striped" style="padding-left: 25%; padding-right: 25%; width: 80%;">
+
+          <tr>
+            <th>Official name</th>
+            <td><%= (@this_country.official_name.nil?) ? @this_country.name : @this_country.official_name  %></td>
+          </tr>
+          <tr>
+            <th>Alpha-2 code</th>
+            <td><%= @this_country.alpha_2_code %></td>
+          </tr>
+          <tr>
+            <th>Alpha-3 code</th>
+            <td><%= @this_country.alpha_3_code %></td>
+          </tr>
+
+        </table>
+      <br>
+      <h3>Country subregions</h3>
+      <p>
+      <% if @this_country.subregions? %>
+            <h6>Subregion type: <b><%= @this_country.subregions.first.type %> </b></h6>
+          <% @this_country.subregions.each do |sr| %>
+              <%= sr %>
+                <br>
+          <% end %>
+      <% else %>
+      No subregions
+      <% end %>
+      </p>
+          <br>
+          <br>
+      <a href="/"> Back </a>
+    </div>
+</body>
+</html>

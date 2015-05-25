@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <title>Countries</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <h1>Countries</h1>
+        <% @countries.each_with_index do |c, index| %>
+            <a href="country/<%= index %>" ><%= c.name.to_s %> </a>
+            <br>
+        <% end %>
+    </div>
+</body>
+</html>
